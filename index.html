@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영빈식당 · 지산유원지 밑자락 보리밥 한정식</title>
+<meta name="description" content="광주 지산유원지 밑자락 영빈식당. 다양한 반찬이 올라오는 보리밥 한정식, 1인 12,000원(2인 기준). 예약·단체 문의를 남겨 주세요.">
+<meta property="og:title" content="영빈식당 보리밥 한정식">
+<meta property="og:description" content="지산유원지 밑자락, 다양한 반찬이 올라오는 보리밥 한 상. 예약·단체 문의 받아요.">
+<meta property="og:image" content="/assets/og.jpg">
+<meta name="theme-color" content="#4a2f1c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wood: #4a2f1c;      /* 나무 밥상 */
+    --wood-deep: #33200f;
+    --barley: #d8c597;    /* 보리 */
+    --namul: #4f6b3a;     /* 나물 */
+    --gochu: #a8382a;     /* 고추장 */
+    --baekja: #fbfaf6;    /* 백자 */
+    --ink: #2b231d;       /* 먹 */
+    --ink-soft: #5e534a;
+    --line: #e4ddcf;
+    --serif: "Gowun Batang", serif;
+    --sans: "Gowun Dodum", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--baekja);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--gochu); outline-offset: 3px; }
+  [hidden] { display: none !important; }
+
+  /* 첫 화면: 나무 밥상 위에 세로로 쓴 '보리밥 한 상' */
+  .hero {
+    background: var(--wood);
+    color: var(--baekja);
+    padding: 28px 20px 0;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "brand brand"
+      "title copy"
+      "cta cta"
+      "photo photo";
+    gap: 20px 28px;
+    align-items: start;
+  }
+  .brand { grid-area: brand; }
+  .title { grid-area: title; }
+  .hero-copy { grid-area: copy; }
+  .hero-cta { grid-area: cta; }
+  .hero-photo { grid-area: photo; }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    color: var(--barley);
+    margin: 0;
+  }
+  .title {
+    writing-mode: vertical-rl;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(56px, 13vw, 116px);
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    margin: 0;
+    color: var(--baekja);
+  }
+  .title span { display: inline-block; }
+  .hero-copy { padding-top: 6px; max-width: 30em; }
+  .hero-lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 3.4vw, 26px);
+    line-height: 1.55;
+    margin: 0 0 18px;
+  }
+  .hero-place { color: var(--barley); margin: 0 0 28px; }
+  .price {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(216, 197, 151, 0.4);
+  }
+  .price strong { font-family: var(--serif); font-size: 34px; }
+  .price small { color: var(--barley); font-size: 16px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 26px;
+    border-radius: 999px;
+    font: 700 18px/1 var(--sans);
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  .btn-main { background: var(--gochu); color: #fff; }
+  .btn-main:hover { background: #922e22; }
+  .btn-line { border-color: var(--barley); color: var(--baekja); }
+  .btn-line:hover { background: rgba(216, 197, 151, 0.15); }
+  .hero-photo {
+    margin: 16px -20px 0;
+  }
+  .hero-photo img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  @media (min-width: 900px) {
+    .hero { padding: 40px 32px 56px; }
+    .hero-inner {
+      grid-template-columns: auto minmax(0, 0.9fr) minmax(0, 1.1fr);
+      grid-template-areas:
+        "brand brand photo"
+        "title copy photo"
+        "title cta photo";
+      column-gap: 40px;
+    }
+    .hero-photo { margin: 0; align-self: center; }
+    .hero-photo img { border-radius: 6px; max-height: none; aspect-ratio: 463 / 374; }
+  }
+
+  /* 본문 */
+  .section { padding: 72px 20px; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .section h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0 0 16px;
+  }
+  .section p { max-width: 36em; margin: 0 0 12px; }
+
+  .table-note {
+    display: grid;
+    gap: 32px;
+  }
+  .facts { list-style: none; padding: 0; margin: 24px 0 0; }
+  .facts li {
+    display: grid;
+    grid-template-columns: 7em 1fr;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .facts li:first-child { border-top: 1px solid var(--line); }
+  .facts b { color: var(--namul); font-weight: 400; }
+
+  .visit { background: #f1ece0; }
+  .visit-grid { display: grid; gap: 32px; }
+  .maps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .btn-soft { background: var(--wood); color: var(--baekja); min-height: 48px; font-size: 16px; }
+  .btn-soft:hover { background: var(--wood-deep); }
+  .tel { font-family: var(--serif); font-size: 26px; text-decoration: none; }
+
+  .reviews p { color: var(--ink-soft); }
+  .text-link { color: var(--namul); font-weight: 700; }
+
+  /* 문의 폼 */
+  .ask { background: var(--wood); color: var(--baekja); }
+  .ask .wrap { max-width: 640px; }
+  .ask p { color: #eadfc8; }
+  form { margin-top: 28px; display: grid; gap: 18px; }
+  label { display: grid; gap: 6px; font-size: 16px; }
+  input[type="text"], input[type="tel"], textarea {
+    width: 100%;
+    font: 17px/1.5 var(--sans);
+    color: var(--ink);
+    background: var(--baekja);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 13px 14px;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--barley); }
+  textarea { min-height: 130px; resize: vertical; }
+  .consent {
+    grid-template-columns: 24px 1fr;
+    align-items: start;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #eadfc8;
+  }
+  .consent input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--gochu); }
+  .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-msg { min-height: 1.6em; margin: 0; font-weight: 700; }
+  .form-msg.ok { color: var(--barley); }
+  .form-msg.err { color: #ffb4a6; }
+  .btn-main[disabled] { opacity: 0.6; cursor: wait; }
+
+  footer {
+    padding: 32px 20px 110px;
+    color: var(--ink-soft);
+    font-size: 15px;
+    text-align: center;
+  }
+
+  /* 휴대폰: 아래에 늘 보이는 전화·문의 버튼 */
+  .dock {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 8px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(51, 32, 15, 0.96);
+    z-index: 10;
+  }
+  .dock .btn { min-height: 50px; padding: 0 12px; font-size: 17px; }
+
+  @media (min-width: 760px) {
+    .table-note { grid-template-columns: 1fr 1fr; align-items: start; }
+    .visit-grid { grid-template-columns: 1.2fr 1fr; }
+    .dock { display: none; }
+    footer { padding-bottom: 40px; }
+  }
+
+  /* 첫 화면에서 한 번만: 세로 제목이 한 글자씩 놓인다 */
+  @media (prefers-reduced-motion: no-preference) {
+    .title span { opacity: 0; transform: translateY(-14px); animation: place 0.7s ease-out forwards; }
+    .title span:nth-child(2) { animation-delay: 0.12s; }
+    .title span:nth-child(3) { animation-delay: 0.24s; }
+    .title span:nth-child(4) { animation-delay: 0.42s; }
+    .title span:nth-child(5) { animation-delay: 0.54s; }
+    @keyframes place { to { opacity: 1; transform: none; } }
+    html { scroll-behavior: smooth; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="brand">영빈식당</p>
+    <h1 class="title" aria-label="보리밥 한 상"><span>보</span><span>리</span><span>밥</span><br><span>한</span><span>상</span></h1>
+    <div class="hero-copy">
+      <p class="hero-lead">무등산 산행 끝, 다양한 반찬이 올라오는 보리밥 한정식을 차려 드려요.</p>
+      <p class="hero-place">지산유원지 밑자락<br>주차 가능</p>
+    </div>
+    <div class="hero-cta">
+      <p class="price"><strong>1인 12,000원</strong><small>2인부터 차려 드려요</small></p>
+      <div class="actions">
+        <a class="btn btn-main" href="#ask">예약·단체 문의하기</a>
+        <a class="btn btn-line" href="tel:0622275011">전화 062-227-5011</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="/assets/sangcharim.webp" width="463" height="374" alt="나무 상 위에 보리밥과 나물, 무침, 쌈채소 등 반찬 접시가 가득 차려진 영빈식당 보리밥 한정식 상차림">
+    </figure>
+  </div>
+</header>
+
+<main>
+  <section class="section" id="menu">
+    <div class="wrap table-note">
+      <div>
+        <h2>이렇게 차려 드려요</h2>
+        <p>보리밥에 다양한 반찬이 함께 올라오는 한정식 한 상이에요. 산에서 내려와 가족, 일행과 둘러앉아 드시기 좋아요.</p>
+        <p>단체 손님은 미리 문의를 남겨 주시면 확인 후 연락드릴게요.</p>
+      </div>
+      <ul class="facts">
+        <li><b>메뉴</b><span>보리밥 한정식</span></li>
+        <li><b>가격</b><span>1인 12,000원 (2인 기준으로 차려 드려요)</span></li>
+        <li><b>영업시간</b><span>11:00 ~ 18:00</span></li>
+        <li><b>쉬는 날</b><span>전화로 확인해 주세요</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section visit" id="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <h2>오시는 길</h2>
+        <p>지산유원지 밑자락에 있어요. 주차할 수 있어서 차로 오셔도 편해요.</p>
+        <p><strong>광주광역시 동구 지호로 137-3</strong></p>
+        <div class="maps">
+          <a class="btn btn-soft" href="https://map.naver.com/p/search/%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%8F%99%EA%B5%AC%20%EC%A7%80%ED%98%B8%EB%A1%9C%20137-3" target="_blank" rel="noopener">네이버 지도로 보기</a>
+          <a class="btn btn-soft" href="https://map.kakao.com/?q=%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%8F%99%EA%B5%AC%20%EC%A7%80%ED%98%B8%EB%A1%9C%20137-3" target="_blank" rel="noopener">카카오맵으로 보기</a>
+        </div>
+      </div>
+      <div>
+        <p>전화 예약·문의</p>
+        <a class="tel" href="tel:0622275011">062-227-5011</a>
+        <p style="margin-top:12px">영업시간 11:00 ~ 18:00</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews" id="reviews">
+    <div class="wrap">
+      <h2>다녀가신 분들 이야기</h2>
+      <p>손님들이 남긴 후기는 네이버에서 직접 보실 수 있어요.</p>
+      <a class="text-link" href="https://map.naver.com/p/search/%EC%98%81%EB%B9%88%EC%8B%9D%EB%8B%B9%20%EC%A7%80%ED%98%B8%EB%A1%9C" target="_blank" rel="noopener">네이버 지도에서 영빈식당 후기 보기</a>
+    </div>
+  </section>
+
+  <section class="section ask" id="ask">
+    <div class="wrap">
+      <h2>예약·단체 문의</h2>
+      <p>남겨 주시면 확인 후 연락드릴게요. 급하시면 062-227-5011로 전화 주세요.</p>
+      <form id="ask-form" novalidate>
+        <label>이름
+          <input type="text" name="name" autocomplete="name" maxlength="50" required>
+        </label>
+        <label>연락처
+          <input type="tel" name="contact" autocomplete="tel" inputmode="tel" maxlength="100" placeholder="휴대폰 번호" required>
+        </label>
+        <label>문의 내용
+          <textarea name="message" maxlength="1000" placeholder="방문 날짜, 인원, 하고 싶은 말을 적어 주세요"></textarea>
+        </label>
+        <div class="trap" aria-hidden="true">
+          <label>웹사이트 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>(필수) 예약·문의에 답하기 위해 이름, 연락처, 문의 내용을 받아요. 답변에만 쓰고, 문의일로부터 1년 동안 보관한 뒤 지워요.</span>
+        </label>
+        <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        <button class="btn btn-main" type="submit">예약·단체 문의 보내기</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  영빈식당 · 광주광역시 동구 지호로 137-3 · 062-227-5011
+</footer>
+
+<nav class="dock" aria-label="빠른 연락">
+  <a class="btn btn-line" href="tel:0622275011">전화 걸기</a>
+  <a class="btn btn-main" href="#ask">예약·단체 문의</a>
+</nav>
+
+<script>
+  const form = document.getElementById('ask-form');
+  const msg = document.getElementById('form-msg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const f = form.elements;
+    msg.className = 'form-msg';
+    if (!f.name.value.trim() || !f.contact.value.trim()) {
+      msg.textContent = '이름과 연락처를 적어 주세요.';
+      msg.classList.add('err');
+      return;
+    }
+    if (!f.consent.checked) {
+      msg.textContent = '개인정보 수집·이용에 동의해 주세요.';
+      msg.classList.add('err');
+      return;
+    }
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    msg.textContent = '보내는 중이에요…';
+    try {
+      const r = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: f.name.value,
+          contact: f.contact.value,
+          message: f.message.value,
+          website: f.website.value,
+          consent: f.consent.checked,
+        }),
+      });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(data.error || '보내지 못했어요. 잠시 뒤 다시 시도하거나 전화 주세요.');
+      form.reset();
+      msg.textContent = '문의가 접수됐어요. 확인 후 연락드릴게요.';
+      msg.classList.add('ok');
+    } catch (err) {
+      msg.textContent = err.message || '보내지 못했어요. 잠시 뒤 다시 시도하거나 전화 주세요.';
+      msg.classList.add('err');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
